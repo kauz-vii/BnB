@@ -1,0 +1,936 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SocialMap - Community-Powered Maps</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <meta name="description" content="Community-driven maps for everyday life and disasters. Find essentials, share hidden gems, and coordinate relief in real time.">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <div class="logo">🗺</div>
+        <div class="name">SocialMap</div>
+      </div>
+      <nav class="nav">
+        <a href="#features">Features</a>
+        <a href="#disaster">Disaster Mode</a>
+        <a href="#community">Community</a>
+        <a class="btn btn-primary" href="/map.html">Open Map</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-inner">
+        <h1>Maps that guide you to what you truly need</h1>
+        <p class="subtitle">A decentralized social map where locals, travelers, and volunteers share real-time knowledge—from food stalls and water points to safe shelters in a crisis.</p>
+        <div class="cta-row">
+          <a class="btn btn-primary btn-lg" href="/map.html">Open the Map</a>
+          <a class="btn btn-ghost btn-lg" href="#features">Learn more</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="features" class="section">
+      <div class="container grid-3">
+        <div class="card">
+          <div class="card-icon">📍</div>
+          <h3>Create custom maps</h3>
+          <p>Mark food stalls, toilets, shops, hiking spots, and hidden gems. Keep private or share with the world.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">✨</div>
+          <h3>Rate & review maps</h3>
+          <p>Upvote useful maps, add reviews, and help surface trustworthy local knowledge.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">🧭</div>
+          <h3>Filters & categories</h3>
+          <p>Quickly find toilets, clean water, food, shelters, and more with category filters.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="disaster" class="section section-accent">
+      <div class="container two-col">
+        <div>
+          <h2>When disaster strikes, information saves lives</h2>
+          <p>Mark safe shelters, free food centers, medical camps, or blocked roads. Volunteers and families instantly see ground reality, not outdated datasets.</p>
+          <ul class="list">
+            <li>🌊 Floods: mark rescue boats and safe high ground</li>
+            <li>🏚 Earthquakes: mark safe gathering spots</li>
+            <li>🤝 Community efforts: mark free langars and relief points</li>
+          </ul>
+          <div class="cta-row">
+            <a class="btn btn-primary" href="/map.html#mode=disaster">Open Disaster Map</a>
+          </div>
+        </div>
+        <div class="mock">
+          <div class="mock-card">
+            <div class="mock-map">🗺 Live Community Map</div>
+            <div class="mock-legend">
+              <span>🏠 Shelter</span>
+              <span>🍛 Food</span>
+              <span>🏥 Medical</span>
+              <span>⛔ Blocked</span>
+              <span>🛶 Rescue</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="community" class="section">
+      <div class="container grid-3">
+        <div class="card">
+          <div class="card-icon">🏆</div>
+          <h3>Levels & achievements</h3>
+          <p>Earn progress as you contribute. Unlock badges and climb levels with meaningful actions.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">🚩</div>
+          <h3>Community moderation</h3>
+          <p>Flag issues and keep information accurate with transparent, people-first moderation.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">🔗</div>
+          <h3>Share & collaborate</h3>
+          <p>Export/import collections or share a link that loads your map instantly.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="closing">
+      <div class="container closing-inner">
+        <blockquote>
+          “Maps should not just show us where we are. They should guide us to what we truly need—whether it’s an adventure, a hidden food stall, or a safe shelter in the middle of a disaster.”
+        </blockquote>
+        <p class="closing-author">That’s exactly what our platform does.</p>
+        <a class="btn btn-primary btn-lg" href="/map.html">Start contributing</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <span>  SocialMap</span>
+      <a href="/README.md" class="footer-link">Docs</a>
+      <a href="/map.html" class="btn btn-ghost">Open Map</a>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
+  --muted: #98a2b3;
+  --brand: #6ee7b7;
+  --brand-2: #22d3ee;
+  --card: #0f1424;
+  --border: #1f2a44;
+  --danger: #fb7185;
+  --warning: #fbbf24;
+  --success: #34d399;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; height: 100%; }
+body {
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  background: linear-gradient(180deg, var(--bg) 0%, #0e152b 100%);
+  color: var(--text);
+}
+a { color: inherit; text-decoration: none; }
+
+.container { width: 100%; max-width: 1120px; margin: 0 auto; padding: 0 20px; }
+
+.site-header { position: sticky; top: 0; z-index: 40; background: rgba(11, 18, 32, .7); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
+.header-inner { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+.brand { display: flex; align-items: center; gap: 10px; font-weight: 800; }
+.brand .logo { font-size: 22px; }
+.brand .name { letter-spacing: .3px; }
+.nav { display: flex; align-items: center; gap: 16px; }
+.nav a { color: var(--muted); font-weight: 600; }
+.nav a:hover { color: var(--text); }
+
+.btn { display: inline-flex; align-items: center; justify-content: center; padding: 8px 14px; border-radius: 10px; border: 1px solid var(--border); color: var(--text); background: #0c1428; transition: .15s ease; box-shadow: inset 0 0 0 1px rgba(255,255,255,.02); }
+.btn:hover { transform: translateY(-1px); box-shadow: 0 8px 20px rgba(0,0,0,.25); }
+.btn-primary { background: linear-gradient(135deg, var(--brand) 0%, var(--brand-2) 100%); color: #0b1220; font-weight: 800; border: none; }
+.btn-ghost { background: transparent; color: var(--text); }
+.btn-lg { padding: 12px 18px; border-radius: 12px; }
+
+.hero { padding: 80px 0 40px; background: radial-gradient(1000px 400px at 50% -100px, rgba(110,231,183,.15), transparent), radial-gradient(800px 300px at 20% -50px, rgba(34,211,238,.15), transparent); }
+.hero-inner { text-align: center; }
+.hero h1 { font-size: 44px; line-height: 1.1; margin: 0 0 16px; }
+.hero .subtitle { max-width: 800px; margin: 0 auto; color: var(--muted); font-size: 18px; }
+.cta-row { display: flex; gap: 12px; justify-content: center; margin-top: 24px; }
+
+.section { padding: 60px 0; }
+.section-accent { background: rgba(255,255,255,.02); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+
+.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+@media (max-width: 900px) { .grid-3 { grid-template-columns: 1fr; } .two-col { grid-template-columns: 1fr !important; } }
+
+.card { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 20px; box-shadow: 0 10px 30px rgba(0,0,0,.2); }
+.card-icon { font-size: 24px; margin-bottom: 8px; }
+
+.two-col { display: grid; grid-template-columns: 1.2fr .8fr; gap: 28px; align-items: center; }
+.list { color: var(--muted); padding-left: 18px; }
+.list li { margin: 8px 0; }
+.mock { display: flex; justify-content: center; }
+.mock-card { background: var(--bg-soft); border: 1px solid var(--border); border-radius: 14px; padding: 18px; width: 100%; max-width: 420px; }
+.mock-map { display: flex; align-items: center; justify-content: center; height: 200px; background: linear-gradient(135deg, #0b1220, #0b1830); border: 1px dashed var(--border); border-radius: 10px; margin-bottom: 12px; color: var(--muted); }
+.mock-legend { display: flex; gap: 8px; flex-wrap: wrap; color: var(--muted); }
+.mock-legend span { background: rgba(255,255,255,.04); border: 1px solid var(--border); border-radius: 8px; padding: 4px 8px; }
+
+.closing { padding: 60px 0 100px; text-align: center; }
+.closing blockquote { font-size: 20px; line-height: 1.4; margin: 0; }
+.closing-author { color: var(--muted); margin: 12px 0 22px; }
+
+.site-footer { border-top: 1px solid var(--border); }
+.footer-inner { height: 64px; display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.footer-link { color: var(--muted); }
+
+/* Map page layout */
+.app { display: grid; grid-template-columns: 320px 1fr; height: calc(100vh - 64px); }
+@media (max-width: 900px) { .app { grid-template-columns: 1fr; grid-template-rows: auto 1fr; } }
+.sidebar { background: var(--bg-soft); border-right: 1px solid var(--border); padding: 14px; overflow: auto; }
+.sidebar .section-title { font-weight: 800; margin: 10px 0 8px; font-size: 14px; color: var(--muted); }
+.sidebar .row { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+.sidebar .field { display: flex; flex-direction: column; gap: 6px; margin: 8px 0; }
+.sidebar input, .sidebar select, .sidebar textarea { background: #0b1325; color: var(--text); border: 1px solid var(--border); border-radius: 10px; padding: 8px 10px; }
+.sidebar textarea { resize: vertical; }
+.pill { display: inline-flex; align-items: center; gap: 6px; background: rgba(255,255,255,.03); border: 1px solid var(--border); border-radius: 999px; padding: 6px 10px; }
+.pill .dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; }
+
+#map { width: 100%; height: 100%; }
+.map-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px; }
+.muted { color: var(--muted); }
+
+.modal { position: fixed; inset: 0; display: none; align-items: center; justify-content: center; background: rgba(0,0,0,.5); z-index: 100; }
+.modal .modal-card { width: 95%; max-width: 520px; background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 16px; box-shadow: 0 10px 30px rgba(0,0,0,.3); }
+.modal.open { display: flex; }
+.modal .modal-actions { display: flex; justify-content: flex-end; gap: 8px; margin-top: 12px; }
+.stars { display: inline-flex; gap: 4px; cursor: pointer; }
+.stars .star { font-size: 22px; filter: grayscale(1) brightness(.7); }
+.stars .star.active { filter: none; }
+
+.kbd { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; background: rgba(255,255,255,.08); border: 1px solid var(--border); border-radius: 6px; padding: 2px 6px; color: var(--text); }
+
+.legend { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 8px; }
+.legend .legend-item { display: inline-flex; align-items: center; gap: 6px; background: rgba(255,255,255,.04); border: 1px solid var(--border); border-radius: 8px; padding: 4px 8px; color: var(--muted); }
+
+/* Leaflet overrides for dark theme */
+.leaflet-container { background: #0b1120; }
+.leaflet-popup-content-wrapper, .leaflet-popup-tip { background: #0b1325; color: var(--text); border: 1px solid var(--border); }
+.leaflet-control-zoom a { background: #0b1325; color: var(--text); border: 1px solid var(--border); }
+.leaflet-bar a:hover { background: #0c162e; }
+map.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SocialMap – Community Map</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <div class="logo">🗺</div>
+        <div class="name">SocialMap</div>
+      </div>
+      <nav class="nav">
+        <a href="/index.html">Home</a>
+        <a href="#" id="openAchievements">Achievements</a>
+        <a href="#" id="openReviews">Rate & Reviews</a>
+        <a class="btn btn-primary" href="#" id="shareLinkBtn">Share</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="app">
+    <aside class="sidebar">
+      <div class="map-header">
+        <div>
+          <div class="muted" style="font-size:12px;">Mode</div>
+          <div class="row">
+            <select id="modeSelect">
+              <option value="explore">Explore</option>
+              <option value="disaster">Disaster</option>
+            </select>
+            <span id="avgRating" class="pill" title="Average rating">⭐ <span id="avgRatingValue">0.0</span></span>
+          </div>
+        </div>
+        <div class="row">
+          <button class="btn" id="newCollectionBtn">New Collection</button>
+          <select id="collectionSelect"></select>
+        </div>
+      </div>
+
+      <div class="section-title">Filters</div>
+      <div id="filters" class="legend"></div>
+
+      <div class="section-title">Add marker</div>
+      <div class="field">
+        <div class="muted">Click "Start" then click on the map</div>
+        <div class="row"><button class="btn btn-primary" id="startAddBtn">Start</button><button class="btn" id="cancelAddBtn">Cancel</button></div>
+      </div>
+      <div class="field">
+        <label>Title</label>
+        <input type="text" id="markerTitle" placeholder="e.g., Clean water tap">
+      </div>
+      <div class="field">
+        <label>Description</label>
+        <textarea id="markerDesc" rows="3" placeholder="Add helpful details"></textarea>
+      </div>
+      <div class="field">
+        <label>Category</label>
+        <select id="markerCategory"></select>
+      </div>
+      <div class="row">
+        <span class="pill"><span class="dot" id="coordDot" style="background:#22d3ee"></span><span id="coordText" class="muted">No location selected</span></span>
+        <button class="btn" id="saveMarkerBtn">Save</button>
+      </div>
+
+      <div class="section-title">Import / Export</div>
+      <div class="row">
+        <button class="btn" id="exportBtn">Export JSON</button>
+        <label class="btn" for="importFile">Import JSON</label>
+        <input type="file" id="importFile" accept="application/json" style="display:none">
+      </div>
+
+      <div class="section-title">Share</div>
+      <div class="field">
+        <input id="shareUrl" readonly placeholder="Click Share to generate link">
+      </div>
+
+      <div class="section-title">Legend</div>
+      <div id="legend" class="legend"></div>
+
+      <div class="section-title">Tips</div>
+      <p class="muted">- Press <span class="kbd">Shift</span> + drag to zoom to a region.<br>- Click a marker to flag an issue or remove your own.</p>
+    </aside>
+
+    <div id="map"></div>
+  </div>
+
+  <div id="reviewsModal" class="modal">
+    <div class="modal-card">
+      <h3>Rate this collection</h3>
+      <div class="stars" id="ratingStars"></div>
+      <div class="field">
+        <label>Your review (optional)</label>
+        <textarea id="reviewText" rows="3" placeholder="Why is this map useful?"></textarea>
+      </div>
+      <div class="modal-actions">
+        <button class="btn" id="closeReviews">Close</button>
+        <button class="btn btn-primary" id="saveReview">Save</button>
+      </div>
+      <div style="margin-top:10px;" id="reviewsList"></div>
+    </div>
+  </div>
+
+  <div id="achievementsModal" class="modal">
+    <div class="modal-card">
+      <h3>Your achievements</h3>
+      <div id="achievementsList" class="legend" style="margin-top:8px;"></div>
+      <p class="muted" id="levelInfo" style="margin-top:10px;"></p>
+      <div class="modal-actions">
+        <button class="btn btn-primary" id="closeAchievements">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <script src="https://cdn.jsdelivr.net/npm/lz-string@1.5.0/libs/lz-string.min.js"></script>
+  <script src="/map.js"></script>
+</body>
+</html>
+map.js
+/* SocialMap: Client-only MVP with Leaflet, localStorage, sharing, disaster mode */
+(function() {
+  const STORAGE_KEY = 'socialmap_state_v1';
+  const USER_KEY = 'socialmap_user_v1';
+
+  const CATEGORY_DEFS = [
+    { key: 'food', label: 'Food Stall', emoji: '🍜', color: '#f59e0b' },
+    { key: 'toilet', label: 'Toilet', emoji: '🚻', color: '#60a5fa' },
+    { key: 'water', label: 'Clean Water', emoji: '💧', color: '#22d3ee' },
+    { key: 'shop', label: 'Shop', emoji: '🛍', color: '#a78bfa' },
+    { key: 'hike', label: 'Hiking Spot', emoji: '🥾', color: '#34d399' },
+    { key: 'gem', label: 'Hidden Gem', emoji: '✨', color: '#f472b6' },
+    // Disaster focused
+    { key: 'shelter', label: 'Shelter', emoji: '🏠', color: '#6ee7b7' },
+    { key: 'medical', label: 'Medical', emoji: '🏥', color: '#fb7185' },
+    { key: 'blocked', label: 'Blocked Road', emoji: '⛔', color: '#f87171' },
+    { key: 'boat', label: 'Rescue Boat', emoji: '🛶', color: '#22c55e' },
+    { key: 'gather', label: 'Gathering Spot', emoji: '📍', color: '#fbbf24' },
+    { key: 'langar', label: 'Langar / Free Food', emoji: '🍛', color: '#fde047' }
+  ];
+
+  const DISASTER_DEFAULTS = ['shelter','medical','blocked','boat','langar','water'];
+
+  const DEFAULT_CENTER = [20.5937, 78.9629]; // India centroid as a neutral default
+  const DEFAULT_ZOOM = 5;
+
+  let map;
+  let layerGroup;
+  let addingMode = false;
+  let pendingLatLng = null;
+  let filterActiveKeys = new Set();
+
+  const els = {};
+
+  function $(id) { return document.getElementById(id); }
+
+  function getUser() {
+    let user = load(USER_KEY);
+    if (!user) {
+      user = {
+        id: 'u_' + randomId(),
+        displayName: 'You',
+        points: 0,
+        level: 1,
+        achievements: [],
+        stats: { markersAdded: 0, reviewsWritten: 0, disasterMarkers: 0 }
+      };
+      save(USER_KEY, user);
+    }
+    return user;
+  }
+
+  function getState() {
+    let state = load(STORAGE_KEY);
+    if (!state) {
+      const collectionId = 'c_' + randomId();
+      state = {
+        currentCollectionId: collectionId,
+        collectionsById: {
+          [collectionId]: createCollection('My First Map', true)
+        }
+      };
+      save(STORAGE_KEY, state);
+    }
+    return state;
+  }
+
+  function createCollection(name, isOwner) {
+    return {
+      id: 'c_' + randomId(),
+      name: name || 'Untitled',
+      isOwner: isOwner !== false,
+      createdAt: Date.now(),
+      markers: [],
+      reviews: [],
+      flags: 0
+    };
+  }
+
+  function randomId() {
+    return Math.random().toString(36).slice(2, 10);
+  }
+
+  function save(key, value) {
+    localStorage.setItem(key, JSON.stringify(value));
+  }
+
+  function load(key) {
+    const raw = localStorage.getItem(key);
+    if (!raw) return null;
+    try { return JSON.parse(raw); } catch { return null; }
+  }
+
+  function saveState(state) { save(STORAGE_KEY, state); }
+
+  function avgRating(collection) {
+    if (!collection.reviews || collection.reviews.length === 0) return 0;
+    const s = collection.reviews.reduce((a, r) => a + (r.rating || 0), 0);
+    return Math.round((s / collection.reviews.length) * 10) / 10;
+  }
+
+  function categoryByKey(key) {
+    return CATEGORY_DEFS.find(c => c.key === key);
+  }
+
+  function buildDivIcon(emoji) {
+    return L.divIcon({
+      className: 'custom-marker',
+      html: <div style="font-size:20px; filter: drop-shadow(0 2px 2px rgba(0,0,0,.4))">${emoji}</div>,
+      iconSize: [24, 24],
+      iconAnchor: [12, 12]
+    });
+  }
+
+  function ensureFilters(mode) {
+    const wrap = els.filters;
+    wrap.innerHTML = '';
+    const keys = CATEGORY_DEFS.map(c => c.key);
+    const defaults = mode === 'disaster' ? new Set(DISASTER_DEFAULTS) : new Set(keys);
+    filterActiveKeys = new Set(defaults);
+    CATEGORY_DEFS.forEach(cat => {
+      const item = document.createElement('label');
+      item.className = 'legend-item';
+      item.innerHTML = <span>${cat.emoji}</span><span>${cat.label}</span><input type="checkbox" ${defaults.has(cat.key)?'checked':''} data-key="${cat.key}" style="margin-left:6px">;
+      wrap.appendChild(item);
+    });
+  }
+
+  function renderLegend() {
+    const wrap = els.legend;
+    wrap.innerHTML = '';
+    CATEGORY_DEFS.forEach(cat => {
+      const pill = document.createElement('div');
+      pill.className = 'legend-item';
+      pill.innerHTML = <span class="dot" style="background:${cat.color}"></span><span>${cat.emoji}</span><span>${cat.label}</span>;
+      wrap.appendChild(pill);
+    });
+  }
+
+  function renderCategorySelect() {
+    els.markerCategory.innerHTML = '';
+    CATEGORY_DEFS.forEach(cat => {
+      const opt = document.createElement('option');
+      opt.value = cat.key; opt.textContent = ${cat.emoji} ${cat.label};
+      els.markerCategory.appendChild(opt);
+    });
+  }
+
+  function renderCollections(state) {
+    const sel = els.collectionSelect;
+    sel.innerHTML = '';
+    Object.values(state.collectionsById).sort((a,b)=>a.createdAt-b.createdAt).forEach(col => {
+      const opt = document.createElement('option');
+      opt.value = col.id;
+      opt.textContent = ${col.name}${col.isOwner?'':' (view-only)'};
+      sel.appendChild(opt);
+    });
+    sel.value = state.currentCollectionId;
+    updateAvgRating();
+  }
+
+  function updateAvgRating() {
+    const state = getState();
+    const col = state.collectionsById[state.currentCollectionId];
+    els.avgRatingValue.textContent = avgRating(col).toFixed(1);
+  }
+
+  function renderMarkers() {
+    const state = getState();
+    const col = state.collectionsById[state.currentCollectionId];
+    layerGroup.clearLayers();
+    col.markers.forEach(m => {
+      if (!filterActiveKeys.has(m.category)) return;
+      const cat = categoryByKey(m.category);
+      const marker = L.marker([m.lat, m.lng], { icon: buildDivIcon(cat.emoji) });
+      const canDelete = col.isOwner && m.createdBy === getUser().id;
+      const popup = document.createElement('div');
+      const title = document.createElement('div');
+      title.style.fontWeight = '800';
+      title.textContent = m.title || '(Untitled)';
+      const desc = document.createElement('div');
+      desc.textContent = m.description || '';
+      desc.style.margin = '4px 0 8px';
+      const meta = document.createElement('div');
+      meta.className = 'muted';
+      meta.style.fontSize = '12px';
+      meta.textContent = ${cat.emoji} ${cat.label} • ${new Date(m.createdAt).toLocaleString()} • Flags: ${m.flags||0};
+
+      const row = document.createElement('div');
+      row.style.display = 'flex'; row.style.gap = '6px';
+      const flagBtn = document.createElement('button');
+      flagBtn.className = 'btn'; flagBtn.textContent = 'Flag issue';
+      flagBtn.onclick = () => { m.flags = (m.flags||0) + 1; persistAndRender(); };
+      row.appendChild(flagBtn);
+      if (canDelete) {
+        const del = document.createElement('button');
+        del.className = 'btn'; del.textContent = 'Remove';
+        del.onclick = () => {
+          const idx = col.markers.findIndex(x=>x.id===m.id);
+          if (idx>=0) { col.markers.splice(idx,1); persistAndRender(); }
+        };
+        row.appendChild(del);
+      }
+      popup.append(title, desc, meta, row);
+      marker.bindPopup(popup);
+      marker.addTo(layerGroup);
+    });
+  }
+
+  function persistAndRender() {
+    const state = getState();
+    saveState(state);
+    renderMarkers();
+  }
+
+  function addMarkerFromForm() {
+    const state = getState();
+    const col = state.collectionsById[state.currentCollectionId];
+    if (!col.isOwner) { alert('View-only collection'); return; }
+    if (!pendingLatLng) { alert('Click on the map to choose a location.'); return; }
+    const title = els.markerTitle.value.trim();
+    const description = els.markerDesc.value.trim();
+    const category = els.markerCategory.value;
+    const marker = {
+      id: 'm_' + randomId(),
+      title, description, category,
+      lat: pendingLatLng.lat, lng: pendingLatLng.lng,
+      createdAt: Date.now(), createdBy: getUser().id,
+      flags: 0
+    };
+    col.markers.push(marker);
+    const user = getUser();
+    user.stats.markersAdded += 1;
+    if (DISASTER_DEFAULTS.includes(category)) user.stats.disasterMarkers += 1;
+    updateProgress(user);
+    save(USER_KEY, user);
+    clearMarkerForm();
+    saveState(state);
+    renderMarkers();
+  }
+
+  function clearMarkerForm() {
+    els.markerTitle.value = '';
+    els.markerDesc.value = '';
+    pendingLatLng = null;
+    els.coordText.textContent = 'No location selected';
+  }
+
+  function newCollectionFlow() {
+    const name = prompt('Name your collection:', 'My Map');
+    if (!name) return;
+    const state = getState();
+    const col = createCollection(name, true);
+    state.collectionsById[col.id] = col;
+    state.currentCollectionId = col.id;
+    saveState(state);
+    renderCollections(state);
+    renderMarkers();
+  }
+
+  function onChangeCollection() {
+    const state = getState();
+    const nextId = els.collectionSelect.value;
+    if (!state.collectionsById[nextId]) return;
+    state.currentCollectionId = nextId;
+    saveState(state);
+    updateAvgRating();
+    renderMarkers();
+  }
+
+  function onModeChange() {
+    const mode = els.modeSelect.value;
+    ensureFilters(mode);
+    renderMarkers();
+  }
+
+  function onFilterToggle(e) {
+    if (e.target && e.target.dataset && e.target.dataset.key) {
+      const key = e.target.dataset.key;
+      if (e.target.checked) filterActiveKeys.add(key); else filterActiveKeys.delete(key);
+      renderMarkers();
+    }
+  }
+
+  function onStartAdd() {
+    addingMode = true;
+    els.startAddBtn.disabled = true;
+    els.cancelAddBtn.disabled = false;
+  }
+
+  function onCancelAdd() {
+    addingMode = false; pendingLatLng = null; els.coordText.textContent = 'No location selected';
+    els.startAddBtn.disabled = false; els.cancelAddBtn.disabled = true;
+  }
+
+  function handleMapClick(e) {
+    if (!addingMode) return;
+    pendingLatLng = e.latlng;
+    els.coordText.textContent = ${pendingLatLng.lat.toFixed(5)}, ${pendingLatLng.lng.toFixed(5)};
+  }
+
+  function exportCurrent() {
+    const state = getState();
+    const col = state.collectionsById[state.currentCollectionId];
+    const data = JSON.stringify(col, null, 2);
+    const blob = new Blob([data], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url; a.download = ${safeFilename(col.name)}.json;
+    document.body.appendChild(a); a.click(); a.remove();
+    URL.revokeObjectURL(url);
+  }
+
+  function safeFilename(name) {
+    return name.replace(/[^a-z0-9\-]+/gi,'_').toLowerCase();
+  }
+
+  function importFromFile(file) {
+    const reader = new FileReader();
+    reader.onload = () => {
+      try {
+        const obj = JSON.parse(reader.result);
+        if (!obj || !obj.id || !obj.markers) throw new Error('Invalid collection');
+        const newCol = { ...obj, id: 'c_' + randomId(), isOwner: true, name: obj.name || 'Imported Map' };
+        const state = getState();
+        state.collectionsById[newCol.id] = newCol;
+        state.currentCollectionId = newCol.id;
+        saveState(state);
+        renderCollections(state);
+        renderMarkers();
+      } catch (err) {
+        alert('Import failed: ' + err.message);
+      }
+    };
+    reader.readAsText(file);
+  }
+
+  function buildShareLink() {
+    const state = getState();
+    const col = state.collectionsById[state.currentCollectionId];
+    const json = JSON.stringify(col);
+    const compressed = LZString.compressToEncodedURIComponent(json);
+    const url = ${location.origin}${location.pathname.replace(/\/map\.html$/, '/map.html')}#d=${compressed};
+    els.shareUrl.value = url;
+    return url;
+  }
+
+  function tryLoadFromHash() {
+    const hash = location.hash || '';
+    if (!hash.startsWith('#d=')) return false;
+    const data = hash.slice(3);
+    try {
+      const json = LZString.decompressFromEncodedURIComponent(data);
+      const col = JSON.parse(json);
+      const state = getState();
+      const imported = { ...col, id: 'c_' + randomId(), isOwner: false };
+      state.collectionsById[imported.id] = imported;
+      state.currentCollectionId = imported.id;
+      saveState(state);
+      renderCollections(state);
+      renderMarkers();
+      alert('Loaded shared collection in view-only mode. Use Export/Import to make your own copy.');
+      return true;
+    } catch (e) {
+      console.warn('Failed to load from hash', e);
+      return false;
+    }
+  }
+
+  function openReviews() {
+    const state = getState();
+    const col = state.collectionsById[state.currentCollectionId];
+    els.reviewsModal.classList.add('open');
+    renderStars(0);
+    const list = col.reviews.slice().reverse().map(r => {
+      const when = new Date(r.createdAt).toLocaleString();
+      const stars = '⭐'.repeat(r.rating);
+      return <div style="margin:6px 0"><strong>${stars}</strong> – <span class="muted" style="font-size:12px">${when}</span><div>${escapeHtml(r.text||'')}</div></div>;
+    }).join('');
+    els.reviewsList.innerHTML = list || '<div class="muted">No reviews yet</div>';
+  }
+
+  function renderStars(initial) {
+    els.ratingStars.innerHTML = '';
+    let current = initial || 0;
+    for (let i=1;i<=5;i++) {
+      const span = document.createElement('span');
+      span.className = 'star' + (i<=current ? ' active' : '');
+      span.textContent = '⭐';
+      span.onclick = () => { current = i; renderStars(current); els.ratingStars.dataset.value = String(current); };
+      els.ratingStars.appendChild(span);
+    }
+    els.ratingStars.dataset.value = String(current);
+  }
+
+  function saveReview() {
+    const val = Number(els.ratingStars.dataset.value || '0');
+    if (!val) { alert('Please select a star rating'); return; }
+    const text = els.reviewText.value.trim();
+    const state = getState();
+    const col = state.collectionsById[state.currentCollectionId];
+    col.reviews.push({ id: 'r_' + randomId(), rating: val, text, createdAt: Date.now() });
+    saveState(state);
+    updateAvgRating();
+    els.reviewText.value = '';
+    els.reviewsModal.classList.remove('open');
+    const user = getUser();
+    user.stats.reviewsWritten += 1; updateProgress(user); save(USER_KEY, user);
+  }
+
+  function escapeHtml(str) {
+    return (str||'').replace(/[&<>"']/g, s => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[s]));
+  }
+
+  function openAchievements() {
+    const user = getUser();
+    const items = user.achievements.map(a => <div class="legend-item"><span>🏅</span><span>${a}</span></div>).join('');
+    els.achievementsList.innerHTML = items || '<div class="muted">No achievements yet</div>';
+    els.levelInfo.textContent = Level ${user.level} • ${user.points} pts;
+    els.achievementsModal.classList.add('open');
+  }
+
+  function updateProgress(user) {
+    const pts = user.stats.markersAdded * 5 + user.stats.reviewsWritten * 2 + user.stats.disasterMarkers * 3;
+    user.points = pts;
+    const levelBreaks = [0, 10, 30, 60, 100];
+    let lvl = 1;
+    for (let i=0;i<levelBreaks.length;i++) if (pts >= levelBreaks[i]) lvl = i+1;
+    user.level = lvl;
+    const have = new Set(user.achievements);
+    if (user.stats.markersAdded >= 1) have.add('First Marker');
+    if (user.stats.markersAdded >= 5) have.add('Helper (5 markers)');
+    if (user.stats.markersAdded >= 15) have.add('Cartographer (15 markers)');
+    if (user.stats.reviewsWritten >= 1) have.add('First Review');
+    if (user.stats.disasterMarkers >= 1) have.add('Disaster Responder');
+    user.achievements = Array.from(have);
+  }
+
+  function initMap() {
+    map = L.map('map');
+    layerGroup = L.layerGroup().addTo(map);
+    const tiles = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 19, attribution: '&copy; OpenStreetMap'
+    });
+    tiles.addTo(map);
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition((pos)=>{
+        map.setView([pos.coords.latitude, pos.coords.longitude], 14);
+      }, ()=> map.setView(DEFAULT_CENTER, DEFAULT_ZOOM), { enableHighAccuracy: true, timeout: 3000 });
+    } else {
+      map.setView(DEFAULT_CENTER, DEFAULT_ZOOM);
+    }
+    map.on('click', handleMapClick);
+  }
+
+  function wireDom() {
+    els.modeSelect = document.getElementById('modeSelect');
+    els.collectionSelect = document.getElementById('collectionSelect');
+    els.filters = document.getElementById('filters');
+    els.legend = document.getElementById('legend');
+    els.markerTitle = document.getElementById('markerTitle');
+    els.markerDesc = document.getElementById('markerDesc');
+    els.markerCategory = document.getElementById('markerCategory');
+    els.startAddBtn = document.getElementById('startAddBtn');
+    els.cancelAddBtn = document.getElementById('cancelAddBtn');
+    els.coordText = document.getElementById('coordText');
+    els.exportBtn = document.getElementById('exportBtn');
+    els.importFile = document.getElementById('importFile');
+    els.saveMarkerBtn = document.getElementById('saveMarkerBtn');
+    els.avgRatingValue = document.getElementById('avgRatingValue');
+    els.reviewsModal = document.getElementById('reviewsModal');
+    els.ratingStars = document.getElementById('ratingStars');
+    els.reviewText = document.getElementById('reviewText');
+    els.reviewsList = document.getElementById('reviewsList');
+    els.achievementsModal = document.getElementById('achievementsModal');
+    els.achievementsList = document.getElementById('achievementsList');
+    els.levelInfo = document.getElementById('levelInfo');
+    els.shareUrl = document.getElementById('shareUrl');
+
+    document.getElementById('newCollectionBtn').onclick = newCollectionFlow;
+    els.collectionSelect.onchange = onChangeCollection;
+    els.modeSelect.onchange = onModeChange;
+    els.filters.addEventListener('change', onFilterToggle);
+    document.getElementById('openReviews').onclick = (e)=>{ e.preventDefault(); openReviews(); };
+    document.getElementById('saveReview').onclick = saveReview;
+    document.getElementById('closeReviews').onclick = ()=> els.reviewsModal.classList.remove('open');
+    document.getElementById('openAchievements').onclick = (e)=>{ e.preventDefault(); openAchievements(); };
+    document.getElementById('closeAchievements').onclick = ()=> els.achievementsModal.classList.remove('open');
+    document.getElementById('shareLinkBtn').onclick = (e)=>{ e.preventDefault(); const url = buildShareLink(); navigator.clipboard && navigator.clipboard.writeText(url); };
+
+    els.startAddBtn.onclick = onStartAdd;
+    els.cancelAddBtn.onclick = onCancelAdd; els.cancelAddBtn.disabled = true;
+    els.saveMarkerBtn.onclick = addMarkerFromForm;
+    els.exportBtn.onclick = exportCurrent;
+    els.importFile.onchange = (e)=> { if (e.target.files && e.target.files[0]) importFromFile(e.target.files[0]); };
+  }
+
+  function init() {
+    wireDom();
+    initMap();
+    const params = new URLSearchParams(location.hash.replace(/^#/, ''));
+    if (params.get('mode') === 'disaster') { els.modeSelect.value = 'disaster'; }
+    ensureFilters(els.modeSelect.value);
+    renderLegend();
+    renderCategorySelect();
+    const state = getState();
+    renderCollections(state);
+    if (!tryLoadFromHash()) {
+      renderMarkers();
+    }
+  }
+
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
+})();
+README.md
+# SocialMap – Decentralized Social Map (Client-side MVP)
+
+A lightweight, community-driven map built with Leaflet and localStorage. Create and share collections, add markers for essentials, and switch to Disaster Mode for rapid, ground-level coordination.
+
+## Features
+- Custom collections (maps) stored locally
+- Add markers with categories (food, water, toilets, shops, hiking, gems)
+- Disaster Mode with presets (shelters, medical, blocked roads, rescue boats, langar)
+- Filters by category
+- Ratings and reviews at the collection level
+- Issue flagging per marker
+- Export/import collections as JSON
+- Shareable URL that encodes the collection in the hash (no server)
+- Gamification: levels and achievements based on contributions
+
+## Quick Start
+- Open index.html to view the landing page
+- Click “Open Map” to launch the interactive map (map.html)
+- Allow geolocation for a better starting view (optional)
+
+## How it works
+All data is stored locally in your browser using localStorage. When you share a collection, its data is compressed and embedded in the URL hash via lz-string. Anyone opening the link can preview the collection and optionally import it into their own local storage.
+
+No backend is required for this MVP.
+
+## Development
+- Static app: host with any HTTP server (e.g., python -m http.server)
+- Files:
+  - index.html: Landing page
+  - map.html: Map UI
+  - map.js: Map logic (Leaflet, storage, share, reviews, gamification)
+  - styles.css: Shared styles
+
+## Roadmap Ideas
+- P2P sync between peers (WebRTC)
+- Server-backed federation with moderation rules
+- Account system and map-level permissions
+- Media uploads for markers
+- Offline tile caching
+
+## License
+MIT
+How to run
+Open index.html directly, or serve the folder: python -m http.server 8000 and visit http://localhost:8000.
+
+Disaster Mode: open map.html#mode=disaster.
+
+Share: in the map page, click Share, copy the generated URL.
+
+Import/Export: use the buttons in the sidebar.
+
+Ratings/Reviews and Achievements: open via the top navigation on map.html.
+
+Data persists in your browser via localStorage.
+
+Note: This is a client-only MVP. No backend required.
+
+If you want, I can set up a minimal Node/Express or static deploy (e.g., to Netlify/Vercel) next.
+
+I created the landing page, map UI, local persistence, Disaster Mode filters, sharing, ratings/reviews, and basic levels/achievements.
